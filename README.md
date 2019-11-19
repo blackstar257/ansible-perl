@@ -1,31 +1,38 @@
-## ANXS - perl [![Build Status](https://travis-ci.org/ANXS/perl.png)](https://travis-ci.org/ANXS/perl)
+# Ansible Role: Perl
+
+[![Ansible Role](https://img.shields.io/badge/role-blackstar257.perl-blue.svg)](https://galaxy.ansible.com/blackstar257/perl/)
+[![Build Status](https://travis-ci.org/blackstar257/ansible-perl.svg?branch=master)](https://travis-ci.org/blackstar257/ansible-perl)
 
 Ansible role which manages Perl installation and provides cpan_module, to install modules from CPAN.
 
+## Requirements
 
-#### Requirements & Dependencies
-- Tested on Ansible 1.4 or higher.
+This role requires Ansible 2.0 or higher.
 
+## Role Variables
 
-#### Variables
+| Name               | Default              | Description               |
+| ------------------ | -------------------- | ------------------------- |
+| perl_cpanm_version | 1.7907               | The CPAN release version  |
+| perl_cpanm_path    | /usr/local/bin/cpanm | SThe CPAN script location |
+
+## Dependencies
+
+None
+
+## Example Playbook
 
 ```yaml
-perl_cpanm_version: "1.7102"              # The CPAN release version
-perl_cpanm_path: "/usr/local/bin/cpanm"   # The CPAN script location
+- hosts: all
+  roles:
+    - blackstar257.perl
 ```
 
-
-#### Testing
-This project comes with a VagrantFile, this is a fast and easy way to test changes to the role, fire it up with `vagrant up`
-
-See [vagrant docs](https://docs.vagrantup.com/v2/) for getting setup with vagrant
-
-
-#### License
+## License
 
 Licensed under the MIT License. See the LICENSE file for details.
 
+## Author Information
 
-#### Feedback, bug-reports, requests, ...
-
-Are [welcome](https://github.com/ANXS/perl/issues)!
+Original Pieterjan Vandaele
+Forked by blackstar257
