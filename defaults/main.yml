@@ -1,4 +1,4 @@
 ---
-perl_cpanm_version: "1.7907"
+perl_cpanm_version: "1.9018"
 perl_cpanm_path: "/usr/local/bin/cpanm"
-perl_cpanm_url: "https://raw.githubusercontent.com/miyagawa/cpanminus/{{ perl_cpanm_version }}/cpanm"
+perl_cpanm_url: "https://raw.githubusercontent.com/miyagawa/cpanminus/{{ perl_cpanm_version }}/App-cpanminus/cpanm"
