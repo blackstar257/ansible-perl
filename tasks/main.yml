@@ -12,6 +12,11 @@
     name: "{{ perl_packages }}"
     state: present
 
+- name: check for cpanm executable
+  stat:
+    path: "{{ perl_cpanm_path }}"
+  register: cpanm_executable
+
 - name: get the cpan script
   get_url:
     url: "{{ perl_cpanm_url }}"
@@ -19,3 +24,11 @@
     owner: root
     group: root
     mode: 0755
+  when: not cpanm_executable.stat.exists
+
+- name: install perl modules
+  cpanm:
+    name: "{{ item }}"
+    executable: "{{ perl_cpanm_path }}"
+  with_items: "{{ perl_cpanm_modules }}"
+  when: perl_cpanm_modules|length > 0

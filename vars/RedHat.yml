@@ -1,4 +1,7 @@
 ---
 perl_packages:
   - perl
+  - perl-CPAN
   - perl-devel
+  - make
+  - gcc
