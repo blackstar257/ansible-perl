@@ -1,16 +1,23 @@
-# file: perl/meta/main.yml
+---
+dependencies: []
 
 galaxy_info:
-  author: pjan vandaele
-  company: ANXS
-  description: "Manage perl installation and provides cpan_module, to install modules from CPAN."
-  min_ansible_version: 1.4
+  author: blackstar257
+  description: Manage perl installation and provides cpan_module, to install modules from CPAN.
+  company: None
   license: MIT
+  min_ansible_version: 1.4
   platforms:
-  - name: Ubuntu
-    versions:
-    - all
-  categories:
-  - system
-
-dependencies: []
+    - name: Ubuntu
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - all
+    - name: EL
+      versions:
+        - all
+  galaxy_tags:
+    - system
+    - perl
+    - cpan
