@@ -11,10 +11,11 @@ This role requires Ansible 2.0 or higher.
 
 ## Role Variables
 
-| Name               | Default              | Description               |
-| ------------------ | -------------------- | ------------------------- |
-| perl_cpanm_version | 1.7907               | The CPAN release version  |
-| perl_cpanm_path    | /usr/local/bin/cpanm | SThe CPAN script location |
+| Name               | Default              | Description                           |
+| ------------------ | -------------------- | ------------------------------------- |
+| perl_cpanm_version | 1.7907               | The CPAN release version              |
+| perl_cpanm_path    | /usr/local/bin/cpanm | SThe CPAN script location             |
+| perl_cpanm_modules | []                   | List of modules to install with cpanm |
 
 ## Dependencies
 
