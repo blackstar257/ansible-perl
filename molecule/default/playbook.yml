@@ -2,6 +2,7 @@
 - name: Converge
   hosts: all
   become: true
-
   roles:
     - role: blackstar257.perl
+      perl_cpanm_modules:
+        - JSON

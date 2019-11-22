@@ -30,5 +30,7 @@
   cpanm:
     name: "{{ item }}"
     executable: "{{ perl_cpanm_path }}"
+    installdeps: "{{ perl_cpanm_installdeps }}"
+    notest: "{{ perl_cpanm_notests }}"
   with_items: "{{ perl_cpanm_modules }}"
   when: perl_cpanm_modules|length > 0
