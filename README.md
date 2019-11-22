@@ -1,7 +1,7 @@
 # Ansible Role: Perl
 
 [![Ansible Role](https://img.shields.io/badge/role-blackstar257.perl-blue.svg)](https://galaxy.ansible.com/blackstar257/perl/)
-[![Build Status](https://travis-ci.org/blackstar257/ansible-perl.svg?branch=master)](https://travis-ci.org/blackstar257/ansible-perl)
+[![Build Status](https://travis-ci.com/blackstar257/ansible-perl.svg?branch=master)](https://travis-ci.com/blackstar257/ansible-perl)
 
 Ansible role which manages Perl installation and provides cpan_module, to install modules from CPAN.
 
