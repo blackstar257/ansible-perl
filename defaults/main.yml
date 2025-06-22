@@ -1,7 +1,16 @@
 ---
-perl_cpanm_version: "1.7044"
+# Perl role default variables
+
+# CPAN Minus (cpanm) configuration
+perl_cpanm_version: "1.7907"
 perl_cpanm_path: "/usr/local/bin/cpanm"
 perl_cpanm_url: "https://raw.githubusercontent.com/miyagawa/cpanminus/{{ perl_cpanm_version }}/cpanm"
+
+# Perl modules to install via cpanm
 perl_cpanm_modules: []
-perl_cpanm_installdeps: false
-perl_cpanm_notests: false
+
+# CPAN module installation options
+perl_cpanm_installdeps: false  # Install dependencies for modules
+perl_cpanm_notests: false      # Skip tests during installation
+perl_cpanm_force: false        # Force installation even if tests fail
+perl_cpanm_verbose: false      # Verbose output during installation

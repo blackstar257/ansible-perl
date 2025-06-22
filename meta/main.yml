@@ -4,21 +4,41 @@ dependencies: []
 galaxy_info:
   role_name: perl
   author: blackstar257
+  namespace: blackstar257
   description: Manage perl installation and provides cpan_module, to install modules from CPAN.
   company: None
   license: MIT
-  min_ansible_version: 2.8
+  min_ansible_version: "2.10"
+  
   platforms:
     - name: Ubuntu
       versions:
-        - all
+        - focal    # 20.04
+        - jammy    # 22.04
+        - kinetic  # 22.10
     - name: Debian
       versions:
-        - all
+        - buster   # 10
+        - bullseye # 11
+        - bookworm # 12
     - name: EL
       versions:
-        - all
+        - "7"
+        - "8"
+        - "9"
+    - name: EL
+      versions:
+        - "8"
+        - "9"
+    - name: Fedora
+      versions:
+        - "37"
+        - "38"
+        - "39"
+  
   galaxy_tags:
     - system
     - perl
     - cpan
+    - development
+    - programming

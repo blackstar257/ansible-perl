@@ -1,7 +1,11 @@
 ---
+# Debian/Ubuntu specific variables for Perl role
+
 perl_packages:
-  - perl
-  - libcpan-meta-perl
-  - libperl-dev
-  - make
-  - gcc
+  - perl                    # Core Perl interpreter
+  - libcpan-meta-perl      # CPAN metadata support
+  - libperl-dev            # Development headers for Perl
+  - make                   # Build tools
+  - gcc                    # Compiler for native extensions
+  - build-essential        # Essential build tools
+  - curl                   # For downloading cpanm

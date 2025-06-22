@@ -1,0 +1,7 @@
+---
+# Requirements file for development dependencies
+collections:
+  - name: ansible.posix
+    version: ">=1.3.0"
+  - name: community.general
+    version: ">=3.0.0" 

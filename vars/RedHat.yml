@@ -1,7 +1,11 @@
 ---
+# RedHat/CentOS/Rocky/Alma Linux specific variables for Perl role
+
 perl_packages:
-  - perl
-  - perl-CPAN
-  - perl-devel
-  - make
-  - gcc
+  - perl                   # Core Perl interpreter
+  - perl-CPAN             # CPAN module support
+  - perl-devel            # Development headers for Perl
+  - make                  # Build tools
+  - gcc                   # Compiler for native extensions
+  - gcc-c++               # C++ compiler for some modules
+  - curl                  # For downloading cpanm

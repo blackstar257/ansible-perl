@@ -1,36 +1,41 @@
 ---
-- name: check platform
-  fail:
+- name: Check platform compatibility
+  ansible.builtin.fail:
     msg: "Distro {{ ansible_distribution }} not supported"
   when: ansible_os_family not in ['Debian', 'RedHat']
 
-- name: get the platform specific variables
-  include_vars: "{{ ansible_os_family }}.yml"
+- name: Include platform-specific variables
+  ansible.builtin.include_vars: "{{ ansible_os_family }}.yml"
 
-- name: install packages
-  package:
+- name: Install Perl packages
+  ansible.builtin.package:
     name: "{{ perl_packages }}"
     state: present
+  become: true
 
-- name: check for cpanm executable
-  stat:
+- name: Check if cpanm executable exists
+  ansible.builtin.stat:
     path: "{{ perl_cpanm_path }}"
   register: cpanm_executable
 
-- name: get the cpan script
-  get_url:
+- name: Download cpanm script
+  ansible.builtin.get_url:
     url: "{{ perl_cpanm_url }}"
     dest: "{{ perl_cpanm_path }}"
     owner: root
     group: root
-    mode: 0755
+    mode: '0755'
+  become: true
   when: not cpanm_executable.stat.exists
 
-- name: install perl modules
-  cpanm:
+- name: Install Perl modules via cpanm
+  community.general.cpanm:
     name: "{{ item }}"
     executable: "{{ perl_cpanm_path }}"
     installdeps: "{{ perl_cpanm_installdeps }}"
     notest: "{{ perl_cpanm_notests }}"
-  with_items: "{{ perl_cpanm_modules }}"
-  when: perl_cpanm_modules|length > 0
+    force: "{{ perl_cpanm_force | default(false) }}"
+    verbose: "{{ perl_cpanm_verbose | default(false) }}"
+  loop: "{{ perl_cpanm_modules }}"
+  become: true
+  when: perl_cpanm_modules | length > 0

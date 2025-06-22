@@ -1,0 +1,22 @@
+---
+# .ansible-lint
+
+# Ansible-lint configuration
+exclude_paths:
+  - .cache/  # implicit unless exclude_paths is defined in config
+  - .github/
+  - .molecule/
+  - .tox/
+  - .venv/
+  - molecule/
+
+# Disable specific rules
+skip_list:
+  - yaml[line-length]  # Allow longer lines in YAML
+  - name[missing]      # Allow tasks without names in certain contexts
+
+# Enable all rules by default
+use_default_rules: true
+
+# Set the verbosity level
+verbosity: 1 

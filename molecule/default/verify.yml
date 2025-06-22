@@ -1,0 +1,38 @@
+---
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Check if Perl is installed
+      ansible.builtin.command: perl --version
+      register: perl_version
+      changed_when: false
+
+    - name: Verify Perl is working
+      ansible.builtin.assert:
+        that:
+          - perl_version.rc == 0
+        fail_msg: "Perl is not installed or not working properly"
+
+    - name: Check if cpanm is installed
+      ansible.builtin.stat:
+        path: "{{ perl_cpanm_path | default('/usr/local/bin/cpanm') }}"
+      register: cpanm_stat
+
+    - name: Verify cpanm exists and is executable
+      ansible.builtin.assert:
+        that:
+          - cpanm_stat.stat.exists
+          - cpanm_stat.stat.executable
+        fail_msg: "cpanm is not installed or not executable"
+
+    - name: Test cpanm functionality
+      ansible.builtin.command: "{{ perl_cpanm_path | default('/usr/local/bin/cpanm') }} --version"
+      register: cpanm_version
+      changed_when: false
+
+    - name: Verify cpanm is working
+      ansible.builtin.assert:
+        that:
+          - cpanm_version.rc == 0
+        fail_msg: "cpanm is not working properly" 
